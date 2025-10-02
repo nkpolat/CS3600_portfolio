@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sign-in - Nihat Kayra Polat</title>
+   <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+   <header>
+      <h1>Nihat Kayra Polat</h1>
+      <p>Student | Programmer</p>
+
+      <div id = "nav-placeholder"></div>
+
+   </header>
+
+   <main>
+      <section>
+         <h2>Sign-in</h2>
+         <p>Sign-in page is under construction, but it will containt a simple form where users can enter their email and password to access this demo page. It is only to demonstrate for class purposes because I would not use sign-in and sign-up form for a personal website.</p>
+         <p>For now, you can use the following demo credentials to sign in:</p>
+
+         <form method="post" action="#" aria-label="Sign-in Form">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="submit">Sign In</button>
+         
+         </form>
+
+      </section>
+   </main>
+      
+   <div id = "footer-placeholder"></div>
+
+      <script>
+      fetch('nav.html')
+         .then(response => response.text())
+         .then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+
+         const links = document.querySelectorAll('#nav-placeholder a');
+         const currentPage = window.location.pathname.split("/").pop();
+         links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+               link.classList.add('active');
+            }
+         });
+      });
+      
+      fetch('footer.html')
+         .then(response => response.text())
+         .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+   </script>
+   
+</body>
+</html>

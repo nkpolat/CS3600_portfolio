@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home - Nihat Kayra Polat</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+      <h1>Nihat Kayra Polat</h1>
+      <p>Student | Programmer</p>
+
+      <div id = "nav-placeholder"></div>
+
+   </header>
+
+   <main>
+      <section>
+         <article>
+            <h2>Welcome!</h2>
+            <p>Welcome to my portfolio website, that is still <i>in progress</i>! I'm a senior at the University of Idaho and I study computer science with a focus on data science and software engineering. This site will collect my projects, experiences, and contact information in one place so visitors can quickly learn about me, what I do, and how to reach me.</p>
+            <p>This homepage introduces selected highlights from my coursework, internship(s), and personal projects. Please feel free to explore my website!</p>
+         </article>
+
+      <aside>
+         <figure>
+            <img src="main.jpg" alt="Nihat Kayra Polat" width="200">
+         </figure>
+      </aside>
+      </section>
+   </main>
+
+   
+   <div id = "footer-placeholder"></div>
+
+   <script>
+      fetch('nav.html')
+         .then(response => response.text())
+         .then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+
+         const links = document.querySelectorAll('#nav-placeholder a');
+         const currentPage = window.location.pathname.split("/").pop();
+         links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+               link.classList.add('active');
+            }
+         });
+      });
+      
+      fetch('footer.html')
+         .then(response => response.text())
+         .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+   </script>
+
+</body>
+</html>

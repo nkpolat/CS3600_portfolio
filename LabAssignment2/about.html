@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>About - Nihat Kayra Polat</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+      <h1>Nihat Kayra Polat</h1>
+      <p>Student | Programmer</p>
+
+      <div id = "nav-placeholder"></div>
+
+   </header>
+
+   <main>
+      <section id="about">
+         <h2>About Me</h2>
+         <img src="main.jpg" alt="Nihat Kayra Polat" width="200" style="border-radius: 50%">
+         <p>I was born in August 27, 2002 in Hoboken, New Jersey to a turkish family who was trying to make a living for themselves. Very shortly after my birth, my parents decided it was time to go back to Istanbul, Turkiye, where I was raised for 13 years. Then, for a long time, my dad wanted to come back to the states. On September 7, 2016, we moved back in the United States.</p>
+         <p>This time, however, we moved to Lynnwood, Washington, and have been living there ever since. In 2020, during peak covid year, I started at the University of Idaho fully remote (so that year does not count). Now, I am a senior in computer science. Some things I love are greek mythology, history, video games, and most importantly, sports.</p>
+      </section>
+   </main>
+   
+   <div id = "footer-placeholder"></div>
+
+   <script>
+      fetch('nav.html')
+         .then(response => response.text())
+         .then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+
+         const links = document.querySelectorAll('#nav-placeholder a');
+         const currentPage = window.location.pathname.split("/").pop();
+         links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+               link.classList.add('active');
+            }
+         });
+      });
+
+      fetch('footer.html')
+         .then(response => response.text())
+         .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+   </script>
+
+
+</body>
+</html>
